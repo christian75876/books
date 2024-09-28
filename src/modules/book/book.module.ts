@@ -3,11 +3,16 @@ import { BookService } from './book.service';
 import { BookController } from './book.controller';
 import { MongooseModule } from '@nestjs/mongoose';
 import { Book, BookSchema } from './entities/book.schema';
-import { CreateBookService } from './services/book/create-book.service';
-import { Author, AuthorSchema } from './entities/author.schema';
-import { Genres, GenresSchema } from './entities/genres.schema';
-import { InsertGenresService } from './services/initializer/genres.initializer.service';
-import { InsertAuthorservice } from './services/initializer/author.initializet.service';
+import { Author, AuthorSchema, Genres, GenresSchema } from './entities';
+import {
+  CreateBookService,
+  FindAllBooksService,
+  updateBookService,
+} from './services/book';
+import {
+  InsertAuthorservice,
+  InsertGenresService,
+} from './services/initializer';
 
 @Module({
   imports: [
@@ -32,6 +37,8 @@ import { InsertAuthorservice } from './services/initializer/author.initializet.s
     CreateBookService,
     InsertGenresService,
     InsertAuthorservice,
+    FindAllBooksService,
+    updateBookService,
   ],
   exports: [InsertGenresService, InsertAuthorservice],
 })
