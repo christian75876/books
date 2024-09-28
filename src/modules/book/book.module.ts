@@ -7,6 +7,7 @@ import { Author, AuthorSchema, Genres, GenresSchema } from './entities';
 import {
   CreateBookService,
   FindAllBooksService,
+  FindBookByIdService,
   updateBookService,
 } from './services/book';
 import {
@@ -39,6 +40,7 @@ import {
     InsertAuthorservice,
     FindAllBooksService,
     updateBookService,
+    FindBookByIdService,
   ],
   exports: [InsertGenresService, InsertAuthorservice],
 })

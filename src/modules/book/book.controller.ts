@@ -28,4 +28,9 @@ export class BookController {
   update(@Param('id') id: string, @Body() updateBook: UpdateBookDto) {
     return this.bookService.updateBook(id, updateBook);
   }
+
+  @Get(':id')
+  findOne(@Param('id') id: string) {
+    return this.bookService.findBookById(id);
+  }
 }

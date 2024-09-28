@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import {
   CreateBookService,
   FindAllBooksService,
+  FindBookByIdService,
   updateBookService,
 } from './services/book';
 import { PaginationDto, UpdateBookDto, CreateBookDto } from './dto';
@@ -13,6 +14,7 @@ export class BookService {
     private readonly createBookService: CreateBookService,
     private readonly findAllBooksService: FindAllBooksService,
     private readonly updateBookService: updateBookService,
+    private readonly findBooksService: FindBookByIdService,
   ) {}
 
   async createBook(createBookDto: CreateBookDto): Promise<Book> {
@@ -25,5 +27,8 @@ export class BookService {
 
   async updateBook(id: string, updateBookDto: UpdateBookDto): Promise<Book> {
     return this.updateBookService.updateBook(id, updateBookDto);
+  }
+  async findBookById(id: string): Promise<Book> {
+    return this.findBooksService.findById(id);
   }
 }
