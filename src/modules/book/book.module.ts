@@ -8,6 +8,7 @@ import { Author, AuthorSchema } from './entities/author.schema';
 import { Genres, GenresSchema } from './entities/genres.schema';
 import { InsertGenresService } from './services/initializer/genres.initializer.service';
 import { InsertAuthorservice } from './services/initializer/author.initializet.service';
+import { FindAllBooksService } from './services/book/find-all-books.service';
 
 @Module({
   imports: [
@@ -32,6 +33,7 @@ import { InsertAuthorservice } from './services/initializer/author.initializet.s
     CreateBookService,
     InsertGenresService,
     InsertAuthorservice,
+    FindAllBooksService,
   ],
   exports: [InsertGenresService, InsertAuthorservice],
 })
