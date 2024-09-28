@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import {
   CreateBookService,
+  DeleteBookByIdService,
   FindAllBooksService,
   FindBookByIdService,
   updateBookService,
@@ -15,6 +16,7 @@ export class BookService {
     private readonly findAllBooksService: FindAllBooksService,
     private readonly updateBookService: updateBookService,
     private readonly findBooksService: FindBookByIdService,
+    private readonly deleteBookService: DeleteBookByIdService,
   ) {}
 
   async createBook(createBookDto: CreateBookDto): Promise<Book> {
@@ -30,5 +32,9 @@ export class BookService {
   }
   async findBookById(id: string): Promise<Book> {
     return this.findBooksService.findById(id);
+  }
+
+  async deleteBookById(id: string): Promise<string> {
+    return await this.deleteBookService.deleteBookById(id);
   }
 }

@@ -6,6 +6,7 @@ import {
   Query,
   Patch,
   Param,
+  Delete,
 } from '@nestjs/common';
 import { BookService } from './book.service';
 import { CreateBookDto, PaginationDto, UpdateBookDto } from './dto';
@@ -32,5 +33,10 @@ export class BookController {
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.bookService.findBookById(id);
+  }
+
+  @Delete(':id')
+  delete(@Param('id') id: string) {
+    return this.bookService.deleteBookById(id);
   }
 }
