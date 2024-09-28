@@ -21,6 +21,9 @@ export class Book {
 
   @Prop({ type: [Types.ObjectId], ref: 'Genres' })
   genres: Types.ObjectId[];
+
+  @Prop({ default: false })
+  isDeleted: boolean;
 }
 
 export const BookSchema = SchemaFactory.createForClass(Book);
